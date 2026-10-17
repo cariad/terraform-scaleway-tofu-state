@@ -165,11 +165,20 @@ This module won't create the API keys that you'll need, because OpenTofu would s
 
    If more than one root module keeps its state in the bucket, give each one its own `key`, such as `dns/terraform.tfstate`. Otherwise they'll overwrite each other's state.
 
+1. Set the `<workload>-writer` API key pair as `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables, and initialise your infrastructure's root module:
+
+   ```bash
+   tofu -chdir=infra/your-infra init -migrate-state
+   ```
+
+   If `infra/your-infra` already has local state, `-migrate-state` copies it into the bucket after asking you to confirm. That's why this step needs the writer key.
+
    Now, finally, you're ready to deploy!
 
 1. Wherever you perform OpenTofu plans (e.g. CI, locally, etc), set the `<workload>-reader` API key pair as `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` environment variables, and plan with `-lock=false`:
 
    ```bash
+   tofu init
    tofu plan -lock=false
    ```
 
