@@ -3,7 +3,7 @@
 
 language {
   compatible_with {
-    opentofu = ">= 1.12.0"
+    opentofu = ">= 1.13.0"
   }
 }
 

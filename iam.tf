@@ -2,9 +2,9 @@
 # applications.
 #
 # The caller has to create the API keys by hand in the Scaleway console. If we
-# created the keys in here, OpenTofu would store their secrets in the
-# bootstrap's state. We intentionally force the caller to take responsibility
-# for creating and rotating their own secrets.
+# created the keys in here, OpenTofu would store their secrets in the state
+# backend's state. We intentionally force the caller to take responsibility for
+# creating and rotating their own secrets.
 
 # For plans, which only read the state and don't take its lock.
 resource "scaleway_iam_application" "state_reader" {
