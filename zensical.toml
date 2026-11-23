@@ -1,0 +1,81 @@
+[project]
+copyright = "&copy; 2026 Cariad Eccleston"
+
+nav = [
+  { "Introduction" = "index.md" },
+  { "What does it deploy?" = "infrastructure.md" },
+  { "What do I need?" = "prerequisites.md" },
+  { "How do I deploy it?" = [
+    "usage/index.md",
+    { "1. Add the backend module" = "usage/1-add.md" },
+    { "2. Deploy the backend" = "usage/2-deploy.md" },
+    { "3. Make backend API keys" = "usage/3-keys.md" },
+    { "4. Point your infrastructure at the backend" = "usage/4-use.md" },
+    { "5. Set environment variables for deployments" = "usage/5-variables.md" },
+  ] },
+  { "How do I undeploy it?" = "retire.md" },
+  { "Contributing" = "contributing.md" },
+  { "Development setup" = "development.md" },
+]
+
+repo_name = "cariad/terraform-scaleway-tofu-state"
+repo_url = "https://github.com/cariad/terraform-scaleway-tofu-state"
+site_author = "Cariad Eccleston"
+site_description = "An OpenTofu module to store OpenTofu state in Scaleway."
+site_name = "cariad/terraform-scaleway-tofu-state documentation"
+site_url = "https://cariad.github.io/terraform-scaleway-tofu-state/"
+strict = true
+
+watch = ["CONTRIBUTING.md"]
+
+[[project.extra.social]]
+icon = "fontawesome/solid/user-graduate"
+link = "https://cariad.earth"
+name = "Cariad Eccleston's CV"
+
+[[project.extra.social]]
+icon = "fontawesome/brands/github"
+link = "https://github.com/cariad/"
+name = "Cariad Eccleston on GitHub"
+
+[[project.extra.social]]
+icon = "fontawesome/brands/linkedin"
+link = "https://www.linkedin.com/in/cariad/"
+name = "Cariad Eccleston on LinkedIn"
+
+[project.plugins.include-markdown]
+include_from_url = false
+
+[project.plugins.llmstxt]
+full_output = "llms-full.txt"
+sections = { Documentation = ["*.md"] }
+
+[project.plugins.minify]
+minify_html = true
+
+# Generate a preview image for each page, for links shared on social media.
+[project.plugins.social]
+
+[project.theme]
+features = [
+  "content.action.copy",  # Copy as Markdown
+  "content.code.copy",    # Copy button in code blocks
+  "navigation.footer",    # Previous and next links in the footer
+  "navigation.indexes",   # Section titles open the section's index.md
+]
+
+[project.theme.icon]
+logo = "lucide/archive-arrow-up"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme)"
+
+[[project.theme.palette]]
+accent = "purple"
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+
+[[project.theme.palette]]
+accent = "purple"
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
