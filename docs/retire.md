@@ -16,4 +16,4 @@ If you're *sure* you want to delete everything:
 
 1. Delete the `infra/state-backend` directory.
 
-1. In the Scaleway console, delete the reader and writer API keys, empty the bucket, then delete the bucket, applications, policies and project.
+1. In the Scaleway console, delete the reader and writer API keys, permanently empty the bucket (including every object version and delete marker), then delete the bucket, applications, policies and project.
