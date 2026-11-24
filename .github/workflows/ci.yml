@@ -19,6 +19,9 @@ jobs:
       - name: Check out
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
+          # The docs fill in the latest release from the Git tags, which a
+          # shallow clone doesn't have.
+          fetch-depth: 0
           persist-credentials: false
 
       - name: Install mise and the pinned tools
@@ -32,17 +35,53 @@ jobs:
       - name: Lint Markdown files
         run: mise run lint:markdown
 
-      - name: Lint OpenTofu files
-        run: mise run lint:tofu
-
       - name: Lint TOML files
         run: mise run lint:toml
+
+      # Just build to catch errors. We publish on releases.
+      - name: Build the documentation site
+        run: mise run docs:build
+
+  # Lints and tests the module with the oldest and newest OpenTofu release
+  # series that `versions.tofu` supports.
+  test:
+    env:
+      MISE_ENV: ${{ matrix.mise-env }}
+      MISE_LOCKED: 1
+
+    name: test (OpenTofu ${{ matrix.opentofu }})
+    runs-on: ubuntu-26.04
+    timeout-minutes: 10
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # `.config/mise.opentofu-1.12.toml` overrides the OpenTofu version.
+          - mise-env: opentofu-1.12
+            opentofu: "1.12"
+          # `.config/mise.toml` pins the latest OpenTofu.
+          - mise-env: ""
+            opentofu: "1.13"
+
+    steps:
+      - name: Check out
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install mise and the pinned tools
+        uses: jdx/mise-action@c2a87611a18de5b3828c5652fe268e992400cb5c # v4.3.0
+        with:
+          version: 2026.11.8
+
+      - name: Show the OpenTofu version
+        run: tofu version
+
+      - name: Lint OpenTofu files
+        run: mise run lint:tofu
 
       # `--skip-deps` relies on "mise run lint:tofu" having initialised the
       # module, so keep this step after it.
       - name: Test the module
         run: mise run --skip-deps test
-
-      # Just build to catch errors. We publish on the main branch.
-      - name: Build the documentation site
-        run: mise run docs:build

@@ -54,7 +54,8 @@ CI builds the site in strict mode, so a warning, such as a broken link, fails th
 mise run docs:build
 ```
 
+The site is published only when a GitHub release is published, so it always describes the latest release.
+
 ## Releasing
 
-1. Update the `ref` in the usage examples to the new release's tag, and merge that change into `main`.
-1. Publish a GitHub release for `main`.
+Publish a GitHub release for `main`. That publishes the documentation too, with the new release's tag in the usage examples.

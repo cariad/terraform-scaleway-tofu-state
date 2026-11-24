@@ -8,7 +8,7 @@
 
         Remember, the `cariad/terraform-scaleway-tofu-state` module sets up OpenTofu state storage in Scaleway, but the rest of your infrastructure can be deployed to [bunny.net], [AWS], or any other supported provider.
 
-- **[OpenTofu](https://opentofu.org) 1.13 or later**
+- **[OpenTofu](https://opentofu.org) 1.12 or 1.13**
 
 [AWS]: https://registry.terraform.io/providers/hashicorp/aws/latest/docs
 

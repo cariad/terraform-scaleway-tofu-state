@@ -5,7 +5,16 @@ minimum_release_age = "7d"
 
 [tasks."docs:build"]
 description = "Build the documentation site"
-run = "zensical build"
+run = [
+  # The pages fill in the latest release from `git.short_tag`, which renders
+  # empty if there's no tag -- so fail before building rather than publish a
+  # broken `ref`:
+  "git describe --tags --abbrev=0 > /dev/null",
+  "zensical build",
+  # Fail if there's no site, because then `grep` would find nothing:
+  "test -d site",
+  "! grep --recursive --files-with-matches 'Macro Rendering Error' site",
+]
 
 [tasks."docs:serve"]
 description = "Serve the documentation site locally"
