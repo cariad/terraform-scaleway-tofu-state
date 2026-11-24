@@ -1,9 +1,10 @@
 name: docs
 
+# Publish only on releases, so the docs always describe the latest release.
 on:
-  push:
-    branches:
-      - main
+  release:
+    types:
+      - published
 
 permissions: {}
 
@@ -19,6 +20,9 @@ jobs:
       - name: Check out
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
+          # The docs fill in the latest release from the Git tags, which a
+          # shallow clone doesn't have.
+          fetch-depth: 0
           persist-credentials: false
 
       - name: Install mise and the pinned tools

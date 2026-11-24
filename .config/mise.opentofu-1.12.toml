@@ -1,0 +1,4 @@
+# Overrides the OpenTofu version so that CI can test the oldest release series
+# that `versions.tofu` supports. Run with `MISE_ENV=opentofu-1.12`.
+[tools]
+opentofu = "1.12.12"

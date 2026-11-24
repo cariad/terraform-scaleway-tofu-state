@@ -18,4 +18,4 @@ In your [Scaleway](https://www.scaleway.com/) account, the `cariad/terraform-sca
 
     Owns the API key that you'll create to run `tofu apply` with, which *can read, write, lock, and unlock the state*.
 
-The module doesn't create the API keys themselves, because OpenTofu would store their secrets in the state backend's own state. You'll [make the API keys](usage/3-keys.md) yourself after you deploy the module.
+The module doesn't create the API keys themselves, because OpenTofu would store their secrets in the state backend's own state. You'll [make the API keys](usage/4-keys.md) yourself after you deploy the module.

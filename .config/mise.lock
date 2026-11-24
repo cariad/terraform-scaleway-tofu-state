@@ -50,6 +50,53 @@ url_api = "https://api.github.com/repos/editorconfig-checker/editorconfig-checke
 provenance = "github-attestations"
 
 [[tools.opentofu]]
+version = "1.12.12"
+backend = "aqua:opentofu/opentofu"
+specifiers = ["1.12.12"]
+
+[tools.opentofu."platforms.linux-arm64"]
+checksum = "sha256:6fff506545782de496d7cb29653359b9fca29b0b9979eb9e985fd8092e89f289"
+checksum_source = "mise-versions"
+url = "https://github.com/opentofu/opentofu/releases/download/v1.12.12/tofu_1.12.12_linux_arm64.tar.gz"
+url_api = "https://api.github.com/repos/opentofu/opentofu/releases/assets/714239723"
+
+[tools.opentofu."platforms.linux-arm64-musl"]
+checksum = "sha256:6fff506545782de496d7cb29653359b9fca29b0b9979eb9e985fd8092e89f289"
+checksum_source = "mise-versions"
+url = "https://github.com/opentofu/opentofu/releases/download/v1.12.12/tofu_1.12.12_linux_arm64.tar.gz"
+url_api = "https://api.github.com/repos/opentofu/opentofu/releases/assets/714239723"
+
+[tools.opentofu."platforms.linux-x64"]
+checksum = "sha256:b2a2e0ebdebf410d07706e67fb1b6ffc27e049dd80600188d9acc9634035e3a7"
+checksum_source = "mise-versions"
+url = "https://github.com/opentofu/opentofu/releases/download/v1.12.12/tofu_1.12.12_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/opentofu/opentofu/releases/assets/714239443"
+
+[tools.opentofu."platforms.linux-x64-musl"]
+checksum = "sha256:b2a2e0ebdebf410d07706e67fb1b6ffc27e049dd80600188d9acc9634035e3a7"
+checksum_source = "mise-versions"
+url = "https://github.com/opentofu/opentofu/releases/download/v1.12.12/tofu_1.12.12_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/opentofu/opentofu/releases/assets/714239443"
+
+[tools.opentofu."platforms.macos-arm64"]
+checksum = "sha256:47f72f1662dfbf5c0f39b213f189be04df6a44f1c666f455ceb54390eb5dbb0a"
+checksum_source = "mise-versions"
+url = "https://github.com/opentofu/opentofu/releases/download/v1.12.12/tofu_1.12.12_darwin_arm64.tar.gz"
+url_api = "https://api.github.com/repos/opentofu/opentofu/releases/assets/714238955"
+
+[tools.opentofu."platforms.macos-x64"]
+checksum = "sha256:b6bc144a5b42713bef7fa2c841edff41835bd4881dbd85d4770529f397c44edd"
+checksum_source = "mise-versions"
+url = "https://github.com/opentofu/opentofu/releases/download/v1.12.12/tofu_1.12.12_darwin_amd64.tar.gz"
+url_api = "https://api.github.com/repos/opentofu/opentofu/releases/assets/714238954"
+
+[tools.opentofu."platforms.windows-x64"]
+checksum = "sha256:fdb27d193b7678eb0175c070c2a283ce73f49c6735fea4d21a3f7d6292fe3540"
+checksum_source = "mise-versions"
+url = "https://github.com/opentofu/opentofu/releases/download/v1.12.12/tofu_1.12.12_windows_amd64.tar.gz"
+url_api = "https://api.github.com/repos/opentofu/opentofu/releases/assets/714239983"
+
+[[tools.opentofu]]
 version = "1.13.9"
 backend = "aqua:opentofu/opentofu"
 specifiers = ["1.13.9"]

@@ -1,4 +1,4 @@
-# 3. Make backend API keys
+# 4. Make backend API keys
 
 Log into [Scaleway](https://www.scaleway.com), then open the [IAM / Applications](https://console.scaleway.com/iam/applications) console.
 
@@ -23,5 +23,3 @@ For each application:
     When you're asked if the key will be used for Object Storage, answer "Yes" and select the project that contains the bucket.
 
 1. **Copy and securely store the access and secret keys**
-
-That's all the API keys done! Now configure your infrastructure to [use this state backend](4-use.md).

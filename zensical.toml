@@ -1,5 +1,6 @@
 [project]
 copyright = "&copy; 2026 Cariad Eccleston"
+exclude_docs = "includes/"
 
 nav = [
   { "Introduction" = "index.md" },
@@ -8,11 +9,13 @@ nav = [
   { "How do I deploy it?" = [
     "usage/index.md",
     { "1. Add the backend module" = "usage/1-add.md" },
-    { "2. Deploy the backend" = "usage/2-deploy.md" },
-    { "3. Make backend API keys" = "usage/3-keys.md" },
-    { "4. Point your infrastructure at the backend" = "usage/4-use.md" },
-    { "5. Set environment variables for deployments" = "usage/5-variables.md" },
+    { "2. Get a temporary Scaleway API key" = "usage/2-scaleway-key.md" },
+    { "3. Deploy the backend" = "usage/3-deploy.md" },
+    { "4. Make backend API keys" = "usage/4-keys.md" },
+    { "5. Point your infrastructure at the backend" = "usage/5-use.md" },
+    { "6. Set environment variables for deployments" = "usage/6-variables.md" },
   ] },
+  { "How do I upgrade it?" = "upgrade.md" },
   { "How do I undeploy it?" = "retire.md" },
   { "Contributing" = "contributing.md" },
   { "Development setup" = "development.md" },
@@ -45,6 +48,10 @@ name = "Cariad Eccleston on LinkedIn"
 
 [project.plugins.include-markdown]
 include_from_url = false
+
+[project.plugins.macros]
+include_dir = "docs/includes"
+on_undefined = "strict"
 
 [project.plugins.llmstxt]
 full_output = "llms-full.txt"
