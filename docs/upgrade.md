@@ -15,7 +15,9 @@ To upgrade your infrastructure to a later release:
         Neither the bucket name nor region can be changed after their initial deployment. Changing either of these will cause Scaleway to try to destroy and recreate the bucket, which will fail because this module applies deletion protection.
 
 1. Restore your backed-up `terraform.tfstate` into the module directory.
+
 1. Follow [Get a temporary Scaleway API key](usage/2-scaleway-key.md), then come back here.
+
 1. Download the new versions:
 
     !!! warning "Your state-backend module path"
@@ -39,6 +41,7 @@ To upgrade your infrastructure to a later release:
     ```
 
 1. Revoke your temporary API key in [the API keys console](https://console.scaleway.com/iam/api-keys).
+
 1. Back up the updated `terraform.tfstate` somewhere private.
 
 ## Upgrading with Dependabot
